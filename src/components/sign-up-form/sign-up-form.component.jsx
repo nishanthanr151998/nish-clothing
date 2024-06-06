@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 import FormInput from "../form-input/form-input.component";
-import { createAuthUserWithEmailAndPassword , createUserDocumentFromAuth} from "../../utils/firebase.utils";
+import { 
+    createAuthUserWithEmailAndPassword, 
+    createUserDocumentFromAuth,
+    } from "../../utils/firebase.utils";
 import Button from '../button/button.component';
 
 import './sign-up-form.styles.scss';
@@ -35,7 +38,7 @@ const SignUpForm = () => {
         }
         
         try {
-            const user = await createAuthUserWithEmailAndPassword(
+            const { user } = await createAuthUserWithEmailAndPassword(
                 email, 
                 password
             );
@@ -105,8 +108,8 @@ const SignUpForm = () => {
                 <Button type="submit"> Sign Up</Button>
             </form>
         </div>
-    )
+    );
 
-}
+};
 
 export default SignUpForm;
